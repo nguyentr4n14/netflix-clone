@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '../store/authUser';
 
 const SignUpPage = () => {
     const { searchParams } = new URL(document.location);
@@ -9,9 +10,11 @@ const SignUpPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const { signup, isSigningUp } = useAuthStore();
+
     const handleSignUp = (e) => {
         e.preventDefault();
-        console.log(email, username, password);
+        signup({ email, username, password });
     };
 
     return (
@@ -86,8 +89,11 @@ const SignUpPage = () => {
                             />
                         </div>
 
-                        <button className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700">
-                            Sign Up
+                        <button
+                            className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 hover:cursor-pointer transition-colors duration-300"
+                            disabled={isSigningUp}
+                        >
+                            {isSigningUp ? 'Loading...' : 'Sign up'}
                         </button>
                     </form>
 

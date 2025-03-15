@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '../store/authUser';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const { login, isLoggingIn } = useAuthStore();
+
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(email, password);
+        login({ email, password });
     };
 
     return (
@@ -63,8 +66,11 @@ const LoginPage = () => {
                             />
                         </div>
 
-                        <button className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700">
-                            Sign in
+                        <button
+                            className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 hover:cursor-pointer transition-colors duration-300"
+                            disabled={isLoggingIn}
+                        >
+                            {isLoggingIn ? 'Loading...' : 'Sign in'}
                         </button>
                     </form>
 
