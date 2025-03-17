@@ -9,6 +9,7 @@ import SignUpPage from './Pages/SignUpPage';
 import WatchPage from './Pages/WatchPage';
 import SearchPage from './Pages/SearchPage';
 import SearchHistoryPage from './Pages/SearchHistoryPage';
+import NotFoundPage from './Pages/NotFoundPage';
 
 import Footer from './components/Footer';
 
@@ -61,6 +62,7 @@ function App() {
                         )
                     }
                 />
+                <Route path="/*" element={<NotFoundPage />} />
             </Routes>
             <Footer />
 

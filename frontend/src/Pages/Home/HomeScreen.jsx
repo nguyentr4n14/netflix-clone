@@ -68,7 +68,7 @@ const HomeScreen = () => {
                     <div className="flex mt-8">
                         <Link
                             to={`/watch/${trendingContent?.id}`}
-                            className="bg-white hover:bg-white/80 text-black font-bold py-2 px-4 rounded mr-4 flex items-center"
+                            className="bg-white hover:bg-white/80 text-black font-bold py-2 px-4 rounded mr-4 flex items-center transition-colors duration-200"
                         >
                             <Play className="size-6 mr-2 fill-black" />
                             Play
@@ -76,7 +76,7 @@ const HomeScreen = () => {
 
                         <Link
                             to={`/watch/${trendingContent?.id}`}
-                            className="bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded flex items-center"
+                            className="bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded flex items-center transition-colors duration-200"
                         >
                             <Info className="size-6 mr-2" />
                             More Info

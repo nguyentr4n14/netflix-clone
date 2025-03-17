@@ -11,17 +11,26 @@ export const searchPerson = async (req, res) => {
             return res.status(404).send(null)
         }
 
-        await User.findByIdAndUpdate(req.user._id, {
-            $push: {
-                searchHistory: {
-                    id: response.results[0].id,
-                    image: response.results[0].profile_path,
-                    title: response.results[0].name,
-                    searchType: "person",
-                    createdAt: new Date()
+        const firstResult = response.results[0]
+
+        // Check if the item is already in history
+        const user = await User.findById(req.user._id)
+        const isInHistory = user.searchHistory.some(item => item.id === firstResult.id && item.searchType === "person")
+
+        if (!isInHistory) {
+            await User.findByIdAndUpdate(req.user._id, {
+                $push: {
+                    searchHistory: {
+                        id: response.results[0].id,
+                        image: response.results[0].profile_path,
+                        title: response.results[0].name,
+                        searchType: "person",
+                        createdAt: new Date()
+                    }
                 }
-            }
-        })
+            })
+        }
+
 
         res.status(200).json({ success: true, content: response.results })
     } catch (error) {
@@ -40,17 +49,26 @@ export const searchMovie = async (req, res) => {
             return res.status(404).send(null)
         }
 
-        await User.findByIdAndUpdate(req.user._id, {
-            $push: {
-                searchHistory: {
-                    id: response.results[0].id,
-                    image: response.results[0].poster_path,
-                    title: response.results[0].title,
-                    searchType: "movie",
-                    createdAt: new Date()
+        const firstResult = response.results[0]
+
+        // Check if the item is already in history
+        const user = await User.findById(req.user._id)
+        const isInHistory = user.searchHistory.some(item => item.id === firstResult.id && item.searchType === "movie")
+
+        if (!isInHistory) {
+            await User.findByIdAndUpdate(req.user._id, {
+                $push: {
+                    searchHistory: {
+                        id: firstResult.id,
+                        image: firstResult.poster_path,
+                        title: firstResult.title,
+                        searchType: "movie",
+                        createdAt: new Date()
+                    }
                 }
-            }
-        })
+            })
+        }
+
 
         res.status(200).json({ success: true, content: response.results })
     } catch (error) {
@@ -69,17 +87,25 @@ export const searchTv = async (req, res) => {
             return res.status(404).send(null)
         }
 
-        await User.findByIdAndUpdate(req.user._id, {
-            $push: {
-                searchHistory: {
-                    id: response.results[0].id,
-                    image: response.results[0].poster_path,
-                    title: response.results[0].name,
-                    searchType: "tv",
-                    createdAt: new Date()
+        const firstResult = response.results[0]
+
+        // Check if the item is already in history
+        const user = await User.findById(req.user._id)
+        const isInHistory = user.searchHistory.some(item => item.id === firstResult.id && item.searchType === "tv")
+
+        if (!isInHistory) {
+            await User.findByIdAndUpdate(req.user._id, {
+                $push: {
+                    searchHistory: {
+                        id: firstResult.id,
+                        image: firstResult.poster_path,
+                        title: firstResult.name,
+                        searchType: "tv",
+                        createdAt: new Date()
+                    }
                 }
-            }
-        })
+            })
+        }
 
         res.status(200).json({ success: true, content: response.results })
     } catch (error) {
