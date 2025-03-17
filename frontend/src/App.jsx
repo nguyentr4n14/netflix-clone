@@ -8,6 +8,7 @@ import LoginPage from './Pages/LoginPage';
 import SignUpPage from './Pages/SignUpPage';
 import WatchPage from './Pages/WatchPage';
 import SearchPage from './Pages/SearchPage';
+import SearchHistoryPage from './Pages/SearchHistoryPage';
 
 import Footer from './components/Footer';
 
@@ -49,6 +50,16 @@ function App() {
                 <Route
                     path="/search"
                     element={user ? <SearchPage /> : <Navigate to={'/login'} />}
+                />
+                <Route
+                    path="/history"
+                    element={
+                        user ? (
+                            <SearchHistoryPage />
+                        ) : (
+                            <Navigate to={'/login'} />
+                        )
+                    }
                 />
             </Routes>
             <Footer />

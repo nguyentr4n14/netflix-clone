@@ -25,7 +25,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Desktop navbar items */}
-                <div className="hidden sm:flex gap-2 items-center">
+                <div className="hidden sm:flex gap-5 items-center">
                     <Link
                         to={'/'}
                         className="hover:underline"
