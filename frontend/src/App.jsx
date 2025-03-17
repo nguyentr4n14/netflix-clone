@@ -14,6 +14,7 @@ import NotFoundPage from './Pages/NotFoundPage';
 import Footer from './components/Footer';
 
 import { useAuthStore } from './store/authUser';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
     const { user, authCheck, isCheckingAuth } = useAuthStore();
@@ -34,6 +35,7 @@ function App() {
 
     return (
         <>
+            <ScrollToTop />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route
