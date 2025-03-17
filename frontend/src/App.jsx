@@ -6,6 +6,7 @@ import { Loader } from 'lucide-react';
 import HomePage from './Pages/Home/HomePage';
 import LoginPage from './Pages/LoginPage';
 import SignUpPage from './Pages/SignUpPage';
+import WatchPage from './Pages/WatchPage';
 
 import Footer from './components/Footer';
 
@@ -39,6 +40,10 @@ function App() {
                 <Route
                     path="/signup"
                     element={!user ? <SignUpPage /> : <Navigate to={'/'} />}
+                />
+                <Route
+                    path="/watch/:id"
+                    element={user ? <WatchPage /> : <Navigate to={'/login'} />}
                 />
             </Routes>
             <Footer />
