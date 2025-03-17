@@ -7,6 +7,7 @@ import HomePage from './Pages/Home/HomePage';
 import LoginPage from './Pages/LoginPage';
 import SignUpPage from './Pages/SignUpPage';
 import WatchPage from './Pages/WatchPage';
+import SearchPage from './Pages/SearchPage';
 
 import Footer from './components/Footer';
 
@@ -44,6 +45,10 @@ function App() {
                 <Route
                     path="/watch/:id"
                     element={user ? <WatchPage /> : <Navigate to={'/login'} />}
+                />
+                <Route
+                    path="/search"
+                    element={user ? <SearchPage /> : <Navigate to={'/login'} />}
                 />
             </Routes>
             <Footer />
