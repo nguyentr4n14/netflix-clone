@@ -1,4 +1,4 @@
-<h1 align="center">Netflix Clone</h1>
+![image](https://github.com/user-attachments/assets/84833fbe-4afa-496c-aaf6-7bcd6bcf3d69)<h1 align="center">Netflix Clone</h1>
 
 A full-stack Netflix clone app built with the **MERN stack** (MongoDB, Express.js, React, Node.js), styled using **TailwindCSS**. Authentication and Authorization are implemented using **JWT**, and **Zustand** is used for global state management.
 
@@ -8,7 +8,7 @@ A full-stack Netflix clone app built with the **MERN stack** (MongoDB, Express.j
 
 ## Demo
 
-🔗 **Live App**: [Netflix-clone](https://e-commerce-store-mr97.onrender.com)
+🔗 **Live App**: [Netflix-clone](https://netflix-clone-6mw2.onrender.com)
 - Please wait 50 seconds for the server to turn on instance.
 
 ---
