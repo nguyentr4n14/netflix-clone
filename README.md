@@ -8,7 +8,7 @@ A full-stack Netflix clone app built with the **MERN stack** (MongoDB, Express.j
 
 ## Demo
 
-🔗 **Live App**: [Netflix-clone](https://netflix-clone-fawn-kappa-70.vercel.app/)
+🔗 **Live App**: [Netflix-clone](https://netflix-clone-6mw2.onrender.com)
 - Please wait 50 seconds for the server to turn on instance.
 
 ---
